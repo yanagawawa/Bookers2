@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <headder></headder>
     <span>
       <%= link_to "Bookers", root_path %>
     </span>
@@ -41,6 +42,11 @@
       </li>
 
     <% end %>
+    </headder>
+
     <%= yield %>
+    <footer>
+      <p>CopyRight Infratop.inc</p>
+      </footer>
   </body>
 </html>
