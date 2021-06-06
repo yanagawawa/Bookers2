@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  
+
   def new
   end
 
@@ -7,6 +7,7 @@ class BooksController < ApplicationController
   end
 
   def index
+    @user = current_user
   end
 
   def show
@@ -14,13 +15,13 @@ class BooksController < ApplicationController
 
   def destroy
   end
-  
+
   def edit
-    
+
   end
-  
+
   def upadate
-    
+
   end
-  
+
 end
