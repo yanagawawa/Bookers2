@@ -4,6 +4,9 @@ class BooksController < ApplicationController
   end
 
   def create
+    @book = book.new(book_params)
+    @book.user_id = current_user.id
+    redirect_to book_path
   end
 
   def index
@@ -22,6 +25,12 @@ class BooksController < ApplicationController
 
   def upadate
 
+  end
+  
+  private
+
+  def post_image_params
+    params.require(:book).permit(:title, :body)
   end
 
 end
