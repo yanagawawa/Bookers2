@@ -20,7 +20,7 @@
          <%= link_to "", edit_user_path(@user), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
        </div>
        <h2 class="mt-3">New book</h2>
-       <%= form_with model: @book, local:true do |f| %>
+       <%= form_with model:@book, url:'/books', local:true, class: "new_book", id: "new_book" do |f| %>
        <div class="form-group">
          <label for="book_title">Title</label>
          <%= f.text_field :title, class:"form-control book_title" %>
@@ -34,6 +34,27 @@
        </div>
        <% end %>
     </div>
-    <div class="col-md-8 offset-1"></div>
+    <div class="col-md-8 offset-1">
+        <h2>Books</h2>
+        <table class="table table-hover table-inverse">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Title</th>
+                    <th>Opinion</th>
+                    <th colspan="3"></th>
+                    <tbody>
+                     <tr>
+                      <% @books.each do |book| %>
+                      <td><%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg" %></td>
+                      <td><%= book.title %></td>
+                      <td><%= book.body %></td>
+                      <% end %>
+                     </tr>
+                    </tbody>
+                </tr>
+            </thead>
+        </table>
+    </div>
   </div>
 </div>
