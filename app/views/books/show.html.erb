@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-3">
       <h2>User info</h2>
-       <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, class:"user", fallback: "no_image.jpg", size:'100x100 %>
+       <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, class:"user", fallback: "no_image.jpg", size:'100x100' %>
        <table class="table">
          <tbody>
            <tr></tr>
@@ -47,6 +47,10 @@
                   </td>
                   <td><%= link_to @books.title, book_path(@books.id) %></td>
                   <td><%= @books.body %></td>
+                  <% if @user == current_user %>
+                   <td><%= link_to "Edit", edit_book_path(@books), class: "btn btn-sm btn-success" %></td>
+                   <td><%= link_to "Destroy", book_path(@books), class: "btn btn-sm btn-danger", method: :delete %></td>
+                  <% end %>
               </tr>
           </tbody>
         </table>
