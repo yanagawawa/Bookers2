@@ -5,11 +5,13 @@ class UsersController < ApplicationController
     @book = Book.new
     @books = @users.books.order("id ASC")
   end
+  
   def index
     @user = current_user
     @users = User.all
     @book = Book.new
   end
+  
   def edit
     @user = User.find(params[:id])
     unless 
